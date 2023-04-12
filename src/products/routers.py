@@ -25,7 +25,7 @@ async def retrieve_product(
 ):
     query = select(product).where(product.c.id == product_id)
     result = await session.execute(query)
-    return {"data": result.all().__dict__, "status": 200}
+    return {"data": result.all(), "status": 200}
 
 
 @router.post("/create-product/")
@@ -36,9 +36,3 @@ async def create_product(
     await session.execute(stmt)
     await session.commit()
     return {"data": new_product.dict(), "status": 200}
-
-
-@router.get("/scrap-data/")
-async def scrapy(session: AsyncSession = Depends(get_async_session)):
-    await Parser.create_data(session=session)
-    return {"status": 200}

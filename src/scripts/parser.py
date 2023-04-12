@@ -21,7 +21,6 @@ class Parser:
 
     @classmethod
     async def create_data(cls, session):
-
         for i in genreslist:
             stmt = insert(genre).values(title=i)
             await session.execute(stmt)

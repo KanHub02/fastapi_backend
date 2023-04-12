@@ -7,6 +7,7 @@ from alembic import context
 
 from src.products.models import metadata as product_metadata
 from src.manga.models import metadata as manga_metadata
+from src.chatai.models import metadata as chatai_metadata
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -21,7 +22,7 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-target_metadata = [product_metadata, manga_metadata]
+target_metadata = [product_metadata, manga_metadata, chatai_metadata]
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
